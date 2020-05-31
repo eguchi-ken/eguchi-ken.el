@@ -23,6 +23,44 @@
 
 ;;; Code:
 
+(setenv "SPEC_OPTS" "--format documentation --fail-fast")
+(setenv "RSPEC_RETRY_RETRY_COUNT" "1")
+
+(menu-bar-mode -1)
+(show-paren-mode 1)
+(column-number-mode t)
+(global-hl-line-mode)
+(global-auto-revert-mode 1)
+(electric-pair-mode 1)
+(setq show-paren-delay 0)
+(setq show-paren-style 'expression)
+(setq-default indent-tabs-mode nil)
+(setq x-select-enable-clipboard t)
+(setq x-select-enable-primary t)
+(setq save-interprogram-paste-before-kill t)
+(setq require-final-newline t)
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+(setq backup-directory-alist `((".*". ,temporary-file-directory)))
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+; 長い行（とくに整形されてないjson等の表示）の処理が非常に重いためそれを軽減する
+; https://emacs.stackexchange.com/questions/598/how-do-i-prevent-extremely-long-lines-making-emacs-slow/601
+(setq-default bidi-display-reordering nil)
+
+; 日本語入力時のちらつきを防止する 26.3 では画面が崩れ表示できなくなるので現状 NG (我慢するしかない)
+;; http://hylom.net/emacs-25.1-ime-flicker-problem
+(if (version<= emacs-version "26.1") (setq redisplay-dont-pause nil))
+
+(fset 'yes-or-no-p 'y-or-n-p) ; yes or no の質問を y, n で答えられるようにする
+
+(package-initialize)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+
+(menu-bar-mode t)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+
 (defun insert-current-date (&optional diff)
   "日にちをカレントバッファに出力します"
   (interactive "P")
