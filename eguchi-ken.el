@@ -67,7 +67,7 @@
     (insert
      (shell-command-to-string
       (format
-       "echo -n $(LANG=ja_JP date -v-%dd +'%%Y/%%m/%%d (%%a)')"
+       "echo -n $(LC_ALL=ja_JP date -v-%dd +'%%Y/%%m/%%d (%%a)')"
        (or diff 0)))))
 
 (defun file-full-path ()
