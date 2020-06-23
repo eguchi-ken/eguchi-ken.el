@@ -94,6 +94,11 @@
   (interactive)
   (to-clipboard (concat "[[" (file-full-path) "][" (file-name-nondirectory buffer-file-name) "]]")))
 
+(defun file-full-path-to-clipboard-for-rspec ()
+  "今開いているファイルの rspec コマンドをクリップボードにコピーします"
+  (interactive)
+  (to-clipboard (concat "be rspec " (buffer-file-name))))
+
 (defun open-current-buffer-file ()
   "今開いているファイルを open します"
   (interactive)
