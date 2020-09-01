@@ -41,6 +41,7 @@
 (setq require-final-newline t)
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 (setq backup-directory-alist `((".*". ,temporary-file-directory)))
+(setq kill-ring-max 300)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ; 長い行（とくに整形されてないjson等の表示）の処理が非常に重いためそれを軽減する
