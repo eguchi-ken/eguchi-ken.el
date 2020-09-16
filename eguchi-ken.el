@@ -66,7 +66,7 @@
   "現在時間をカレントバッファに出力します"
   (interactive)
     (insert
-     (shell-command-to-string "date '+%H:%M:%S'")))
+     (replace-regexp-in-string "\n$" "" (shell-command-to-string "date '+%H:%M:%S'"))))
 
 (defun insert-current-date (&optional diff)
   "現在年月日をカレントバッファに出力します"
