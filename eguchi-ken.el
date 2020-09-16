@@ -62,8 +62,14 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+(defun insert-current-time ()
+  "現在時間をカレントバッファに出力します"
+  (interactive)
+    (insert
+     (shell-command-to-string "date '+%H:%M:%S'")))
+
 (defun insert-current-date (&optional diff)
-  "日にちをカレントバッファに出力します"
+  "現在年月日をカレントバッファに出力します"
   (interactive "P")
     (insert
      (shell-command-to-string
