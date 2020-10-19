@@ -124,6 +124,8 @@
               "^***** "                            "##### "
               "#\\+BEGIN_SRC"                      "```"
               "#\\+END_SRC"                        "```"
+              "#\\+begin_src"                      "```"
+              "#\\+end_src"                        "```"
               "\\[\\[\\(.+\\)\\]\\[\\(.+\\)\\]\\]" "[\\2](\\1)"))
       (while replacement
         (goto-char (point-min))
