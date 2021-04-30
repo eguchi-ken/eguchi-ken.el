@@ -34,6 +34,7 @@
 (electric-pair-mode 1)
 (setq show-paren-delay 0)
 (setq show-paren-style 'expression)
+(set-face-attribute 'show-paren-match nil :inherit 'highlight :underline 'unspecified)
 (setq-default indent-tabs-mode nil)
 (setq x-select-enable-clipboard t)
 (setq x-select-enable-primary t)
